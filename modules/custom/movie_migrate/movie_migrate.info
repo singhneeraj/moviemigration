@@ -1,0 +1,14 @@
+name = "Movie Migrate"
+description = "Migration movie data from json."
+core = 7.x
+package = "Custom"
+
+dependencies[] = date
+dependencies[] = taxonomy
+dependencies[] = migrate
+dependencies[] = number
+
+dependencies[] = feature_movie
+dependencies[] = migrate_ui
+
+files[] = movie_migrate.migrate.inc

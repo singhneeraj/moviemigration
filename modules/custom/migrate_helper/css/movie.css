@@ -1,0 +1,13 @@
+#movie-details, #movie-poster{
+  width: 50%;
+  float: left;
+}
+#movie-plot,#movie-rating,#movie-director,#movie-actor,#movie-genre{
+  margin:15px 0 0 3px;
+}
+#movie-details label{
+  display:inline;
+}
+#edit-submit-movie-search{
+  margin-top: 0;
+}

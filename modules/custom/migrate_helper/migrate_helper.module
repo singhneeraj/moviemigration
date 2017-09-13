@@ -1,0 +1,35 @@
+<?php
+
+/*
+ * Implementing hook_form_alter()
+ * replace -any- with the field title for search form.
+ */
+function migrate_helper_form_alter(&$form, $form_state, $form_id) {
+  if(isset($form_state['view']->name) == 'movie_search') {
+    $form['field_language_tid']['#options']['All'] = t('Language');
+    $form['field_genre_tid']['#options']['All'] = t('Genre');
+    $form['field_year_tid']['#options']['All'] = t('Year');
+    $form['field_imdb_rating_value']['#options']['All'] = t('Rating');
+
+    $form['combine']['#attributes']['placeholder'] = t('Search');
+
+    $form['field_language_tid']['#description'] = '';
+    $form['field_genre_tid']['#description'] = '';
+    $form['field_year_tid']['#description'] = '';
+    $form['field_imdb_rating_value']['#description'] = '';
+  }
+}
+
+/*
+ * Implementing hook_theme()
+ * add custom theme for movie contents.
+ */
+function migrate_helper_theme($existing, $type, $theme, $path) {
+  return array (
+    'node__movie' => array (
+      'template' => 'node--movie' ,
+      'base hook' => 'node',
+      'path' => drupal_get_path('module', 'migrate_helper'). '/templates',
+    ),
+  );
+}
